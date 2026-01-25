@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GPA Calculator</title>
+
+    <link rel="stylesheet" href="/global/style.css">
+    <script src="/global/script.js"></script>
+    <script src="/gpaCalculator/gpaCalculator.js"></script>
+
+</head>
+
+<body>
+
+    <div id="templates">
+
+        <datalist id="weightList"></datalist>
+
+        <table>
+
+            <tr id="tempSemester" class="dynamicSemester">
+                <th colspan="5" class="semesterHeader oneline">
+                    <button type="button" onclick="deleteSemester();" class="deleteSemester deleteadd">x</button>
+                    <p class="semesterNum"></p>
+                </th>
+                <th class="deleteCourse"><button type="button" onclick="addCourse();" class="tableContents deleteadd">+</button></td>
+            </tr>
+
+            <tr id="tempCourse" class="dynamicCourse">
+
+                <th class="courseNum"></th>
+                <td class="courseName"><input type="text" class="tableContents"></td>
+                <td class="courseInfo"><input type="text" class="tableContents"></td>
+                <td class="courseInfo"><input type="number" class="tableContents"></td>
+                <td class="courseInfo"><input type="search" list="weightList" class="tableContents"></td>
+                <td class="deleteCourse"><button type="button" onclick="deleteCourse();" class="tableContents deleteadd">x</button></td>
+
+            </tr>
+
+            <tr id="tempWeight" class="dynamicWeight">
+
+                <td class="weightInfo"><input type="text" onchange="applyWeights();" class="tableContents"></th>
+                <td class="weightInfo"><input type="number" onchange="applyWeights();" class="tableContents"></th>
+                <td class="deleteWeight"><button type="button" onclick="deleteWeight(); applyWeights();" class="tableContents deleteadd">x</button></td>
+
+            </tr>
+
+        </table>
+
+    </div>
+
+    <div id="headerSpan">
+
+        <div id="headerSpanBox">
+        <div id="headerSpanText">
+
+            <h1>grade-calc.com</h2>
+            
+        </div>
+
+        <div id="headerSpanLinks">
+
+            <h3><a href="/gpaCalculator/gpaCalculator.html">Calculate GPA</a></h3>
+            <h3><a href="/courseGrade/courseGrade.html">Calculate Course Grade</a></h3>
+            <h3><a>Calculate Final Grade</a></h3>
+            
+        </div>
+        </div>
+
+    </div>
+
+    <div id="calculatorDesc">
+
+        <h1>GPA Calculator</h1>
+        <p>Calculate your unweighted and weighted grade point averages using your course averages and credits.</p>
+
+    </div>
+    
+    <div id="gpaCalculator">
+
+        <div id="gradeScaleSelect">
+
+            <label>Grading scale</label>
+
+            <select id="gradeScale" onchange="scaleDefaultWeights()">
+                <option>100</option>
+                <option>4.0</option>
+            </select>
+
+        </div>
+
+        <br>
+
+        <div id="calculatorBody">
+
+            <table id="courseTable">
+
+                <thead>
+                    <tr>
+                        <th colspan="2">Course</th>
+                        <th class="courseInfo">Grade</th>
+                        <th class="courseInfo">Credits</th>
+                        <th class="courseInfo">Weight</th>
+                        <th class="deleteCourse"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+
+            <span class="oneline"><button type="button" onclick="addSemester();" id="addSemester">Add Semester</button>
+            <button type="button" onclick="getCumGpa();">Get GPA</button><p id="gpaValue">&nbsp</p><br></span>
+            
+        </div>
+
+        <div id="courseWeightings">
+
+            <h3>Course weightings</h3>
+
+            <table id="weightings">
+                <tr>
+                    <th class="weightInfo">Type</th>
+                    <th class="weightInfo">Value</th>
+                    <td class="deleteWeight"></td>
+                </tr>
+            </table>
+            
+            <br>
+
+            <button type="button" onclick="addWeight();">Add Weight</button>
+            
+        </div>
+
+        <div class="newSection"></div>
+
+        <div id="gpaInfo">
+
+            <h3>How is GPA calculated?</h3>
+
+            <p>Letter grades are first converted to a 4.0 scale based on the following table.</p>
+
+            <table id="conversionChart">
+                
+                <tr>
+                    <th>Letter</th>
+                    <th>4.0 Grade</th>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">A+</td>
+                    <td>4.0</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">A</td>
+                    <td>4.0</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">A-</td>
+                    <td>3.7</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">B+</td>
+                    <td>3.3</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">B</td>
+                    <td>3.0</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">B-</td>
+                    <td>2.7</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">C+</td>
+                    <td>2.3</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">C</td>
+                    <td>2.0</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">C-</td>
+                    <td>1.7</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">D+</td>
+                    <td>1.3</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">D</td>
+                    <td>1.0</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">F</td>
+                    <td>0.0</td>
+                </tr>
+
+            </table>
+
+            <p>Each grade is then multiplied by the course's credits and weight to determine its effective score. Then, the total of the effective grades is divided by the total course credits to find the average of each credit, or the GPA.</p>
+
+            <h3>How do weights work?</h3>
+
+            <p>Many schools across the US offer weighted courses. These courses are typically more difficult than normal ones, but have a weighted grade that can go past 100 or 4.0, which provide a larger increase to GPA. The most common types of weighted courses are Honors or Advanced Placement(AP), but these can vary across schools.</p>
+
+            <h3>How to enter courses and weights</h3>
+
+            <table id="fakeCourseTable">
+
+                <tr>
+
+                    <th colspan="2">Course</th>
+                    <th class="fakeCourseInfo">Grade</th>
+                    <th class="fakeCourseInfo">Credits</th>
+                    <th class="fakeCourseInfo">Weight</th>
+                    <th class="fakeDeleteCourse"></th>
+                    <th class="buttonDesc"></th>
+
+                </tr>
+
+                <tr>
+
+                    <th colspan="5" class="semesterHeader oneline">
+                        <p class="importantDesc">Remove semester -></p>
+                        <p class="fakeButton importantButton">x</p>
+                        <p class="semesterNum">Semester 1</p>
+                    </th>
+                    <td class="fakeDeleteCourse"><p class="fakeButton importantButton">+</p></td>
+                    <td class="buttonDesc importantDesc"><- Add course to semester</td>
+                        
+                </tr>
+
+                <tr>
+
+                    <th class="fakeCourseNum">1</th>
+                    <td class="fakeCourseName importantInfo">Name of the course (optional)</td>
+                    <td class="fakeCourseInfo importantInfo">Final or semester course grade</td>
+                    <td class="fakeCourseInfo importantInfo">Course credits or hours</td>
+                    <td class="fakeCourseInfo importantInfo">Grade weight (optional)</td>
+                    <td class="fakeDeleteCourse"><p class="fakeButton importantButton">x</p></td>
+                    <td class="buttonDesc importantDesc"><- Remove course from semester</td>
+
+                </tr>
+
+                <tr>
+
+                    <th class="fakeCourseNum">2</th>
+                    <td class="fakeCourseName">&nbsp</td>
+                    <td class="fakeCourseInfo">&nbsp</td>
+                    <td class="fakeCourseInfo">&nbsp</td>
+                    <td class="fakeCourseInfo">&nbsp</td>
+                    <td class="fakeDeleteCourse"><p class="fakeButton">x</p></td>
+                    <td class="buttonDesc"></td>
+
+                </tr>
+
+                <tr>
+
+                    <th class="fakeCourseNum">3</th>
+                    <td class="fakeCourseName">&nbsp</td>
+                    <td class="fakeCourseInfo">&nbsp</td>
+                    <td class="fakeCourseInfo">&nbsp</td>
+                    <td class="fakeCourseInfo">&nbsp</td>
+                    <td class="fakeDeleteCourse"><p class="fakeButton">x</p></td>
+                    <td class="buttonDesc"></td>
+
+                </tr>
+
+            </table>
+
+            <br>
+
+            <table id="fakeWeightTable">
+
+                <tr>
+                    <th class="weightInfo">Type</th>
+                    <th class="weightInfo">Value</th>
+                    <td class="deleteWeight"></td>
+                </tr>
+
+                <tr id="tempWeight" class="dynamicWeight">
+
+                    <td class="weightInfo importantInfo">Type of weighted course (optional)</th>
+                    <td class="weightInfo importantInfo">Grade weight of those courses</th>
+                    <td class="deleteWeight"><p class="fakeButton">x</p></td>
+
+                </tr>
+
+                <tr id="tempWeight" class="dynamicWeight">
+
+                    <td class="weightInfo">&nbsp</th>
+                    <td class="weightInfo">&nbsp</th>
+                    <td class="deleteWeight"><p class="fakeButton">x</p></td>
+
+                </tr>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
