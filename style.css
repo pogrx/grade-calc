@@ -1,0 +1,380 @@
+html {
+
+    background-color: lightgrey;
+    width: 100vw;
+    overflow-x: hidden;
+
+}
+
+body {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8vw;
+    margin: 0 auto;
+    min-height: 100vh;
+
+}
+
+button, input, select, option {
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.8vw;
+
+}
+
+button {
+
+    line-height: 100%;
+    cursor: pointer;
+    
+}
+
+table, th, td {
+
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0;
+
+}
+
+img {
+
+    height: 80%;
+
+}
+
+a {
+
+    color: black;
+    text-decoration: none;
+    margin: 0;
+
+}
+
+p {
+
+    line-height: 150%;
+
+}
+
+
+/* Page sections */
+
+#calculatorDesc {
+
+    margin: 0 auto;
+    width: 70%;
+
+}
+
+#gpaCalculator {
+
+    margin: 0 auto;
+    width: calc(70% - 50px);
+    padding: 25px;
+    background-color: white;
+
+}
+
+#gpaInfo > p {
+
+    width: 60%;
+
+}
+
+
+/* Header span */
+
+#headerSpan {
+
+    margin: 0 auto;
+    width: 100%;
+    height: 50px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#headerSpanBox {
+
+    width: 72%;
+    height: 100%;
+
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#headerSpanLinks {
+
+    width: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+#headerSpanLinks * {
+
+    white-space: nowrap;
+
+}
+
+#headerSpanText {
+
+    height: 100%;
+    line-height: 100%;
+    
+    display: flex;
+    align-items: center;
+
+}
+
+#headerSpan * {
+
+    margin: 4px;
+
+}
+
+
+/* Course table */
+
+#courseTable {
+
+    width: 50%;
+
+}
+
+.courseNum {
+
+    width: 6%;
+
+}
+
+.courseName {
+
+    width: 38%;
+
+}
+
+.courseInfo {
+
+    width: 17%;
+
+}
+
+.deleteCourse {
+
+    width: 5%;
+
+}
+
+.deleteadd {
+
+    color:#0c61d7d0;
+
+}
+
+
+/* Course table specifics */
+
+#gpaValue, #gradeValue {
+
+    margin-left: 8px;
+    border: 1px solid black;
+    width: 75px;
+    text-align: center;
+
+}
+
+.semesterNum {
+
+    margin: 0;
+
+}
+
+.deleteSemester {
+
+    box-sizing: border-box;
+    border: 0;
+    background-color: white;
+
+}
+
+
+/* Weight table */
+
+#weightings {
+
+    width: 30%;
+
+}
+
+.weightInfo {
+
+    width: 46%;
+
+}
+
+.deleteWeight {
+
+    width: 8%;
+
+}
+
+
+/* Tutorial tables */
+
+.fakeCourseNum {
+
+    width: calc(6%*2/3);
+
+}
+
+.fakeCourseName {
+
+    width: calc(38%*2/3);
+
+}
+
+.fakeCourseInfo {
+
+    width: calc(17%*2/3);
+
+}
+
+.fakeDeleteCourse {
+
+    width: calc(5%*2/3);
+
+}
+
+.buttonDesc {
+
+    width: calc(100%/3);
+    text-align: left;
+    padding-left: 10px;
+    border: 0;
+
+}
+
+#fakeCourseTable {
+
+    width: 75%;
+    color: grey;
+    border: 0;
+
+}
+
+.fakeButton {
+
+    line-height: 100%;
+    text-align: center;
+    font-weight: normal;
+    margin: 0 auto;
+
+}
+
+.importantButton {
+
+    color: red;
+
+}
+
+.importantInfo {
+
+    color: black;
+    font-style: italic;
+
+}
+
+.importantDesc {
+
+    color: red;
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+#fakeWeightTable {
+
+    width: 30%;
+    color: grey;
+
+}
+
+
+/* Conversion chart */
+
+#conversionChart {
+
+    width: 15%;
+
+}
+
+.conversionLetter {
+
+    text-align: left;
+    padding-left: 15%;
+
+}
+
+
+/* Assessment table */
+
+.assessmentNum {
+
+    width: 6%;
+
+}
+
+.assessmentName {
+
+    width: 38%;
+
+}
+
+.assessmentInfo {
+
+    width: 25.5%;
+
+}
+
+
+/* QOL */
+
+#templates {
+
+    display: none;
+
+}
+
+.oneline * {
+
+    display: inline-block;
+
+}
+
+.tableContents {
+
+    width: 100%;
+    box-sizing: border-box;
+    border: 0;
+    background-color: white;
+
+}
+
+.newSection {
+
+    width: 60%;
+    background-color: black;
+    height: 1px;
+    margin-top: 25px;
+
+}
