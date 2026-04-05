@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Course Grade Calculator</title>
+
+    <link rel="stylesheet" href="/global/style.css">
+    <script src="/global/script.js"></script>
+    <script src="/finalGrade/finalGrade.js"></script>
+
+</head>
+
+<body>
+
+
+    <div id="headerSpan">
+
+        <div id="headerSpanBox">
+        <div id="headerSpanText">
+
+            <h1>grade-calc.com</h2>
+            
+        </div>
+
+        <div id="headerSpanLinks">
+
+            <h3><a href="/gpaCalculator/gpaCalculator.html">Calculate GPA</a></h3>
+            <h3><a href="/courseGrade/courseGrade.html">Calculate Course Grade</a></h3>
+            <h3><a href="/finalGrade/finalGrade.html">Calculate Final Grade</a></h3>
+            
+        </div>
+        </div>
+
+    </div>
+
+    <div id="calculatorDesc">
+
+        <h1>Final Grade Calculator</h1>
+        <p>Calculate the needed final grade to achieve a desired course grade.</p>
+
+    </div>
+    
+    <div id="gpaCalculator">
+
+        <div id="gradeScaleSelect">
+
+            <label>Grading scale</label>
+
+            <select id="gradeScale" onchange="scaleDefaultWeights()">
+                <option>100</option>
+                <option>4.0</option>
+            </select>
+
+        </div><br>
+
+        <div id="calculatorBody">
+
+            <table id="courseTable">
+
+                <tbody>
+                <tr>
+                    <th class="assessmentInfo">Current grade (pre-final)</th>
+                    <td class="assessmentInfo"><input type="text" class="tableContents"></td>
+                </tr>
+                <tr>
+                    <th class="assessmentInfo">Desired grade</th>
+                    <td class="assessmentInfo"><input type="text" class="tableContents"></td>
+                </tr>
+                <tr>
+                    <th class="assessmentInfo">Final weight</th>
+                    <td class="assessmentInfo"><input type="text" class="tableContents"></td>
+                </tr>
+                </tbody>
+
+            </table>
+
+            <br><button type="button" onclick="getFinalGrade();">Get Final Grade</button><br>
+            <span class="oneline"><label>Required final grade: </label><p id="gradeValue">&nbsp</p><br></span>
+
+        </div>
+
+
+        <div class="newSection"></div>
+
+        <div id="gpaInfo">
+
+            <h3>How are course grades calculated?</h3>
+
+            <p>Letter grades are first converted to a 4.0 scale based on the following table.</p>
+
+            <table id="conversionChart">
+                
+                <tr>
+                    <th>Letter</th>
+                    <th>4.0 Grade</th>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">A+</td>
+                    <td>4.0</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">A</td>
+                    <td>4.0</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">A-</td>
+                    <td>3.7</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">B+</td>
+                    <td>3.3</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">B</td>
+                    <td>3.0</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">B-</td>
+                    <td>2.7</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">C+</td>
+                    <td>2.3</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">C</td>
+                    <td>2.0</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">C-</td>
+                    <td>1.7</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">D+</td>
+                    <td>1.3</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">D</td>
+                    <td>1.0</td>
+                </tr>
+
+                <tr>
+                    <td class="conversionLetter">F</td>
+                    <td>0.0</td>
+                </tr>
+
+            </table>
+
+            <p>For each type of assessment, the grades of that assessment type are averaged. Then, the averages for each type of assessment are multiplied by their percentage of the grade and added.</p>
+
+            <h3>How do assessment weights work?</h3>
+
+            <p>Each type of assessment makes up a certain percentage of the grade. For example, tests may be worth 40% while quizzes, homework, and participation are worth 20%.</p>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
